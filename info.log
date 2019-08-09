@@ -207,3 +207,74 @@
 {"message":"Bookmark with id invalid is not found.","level":"error"}
 {"message":"Bookmark with id undefined was not found.","level":"error"}
 {"message":"Bookmark with id undefined was not found.","level":"error"}
+{"message":"Bookmark with id undefined was not found.","level":"error"}
+{"message":"Bookmark with id undefined was not found.","level":"error"}
+{"message":"Bookmark with id undefined was not found.","level":"error"}
+{"message":"Bookmark with id 4597b291-ceb6-4eef-a267-12a63038b95f created","level":"info"}
+{"message":"Bookmark with id d571ab86-ef26-453d-b908-6cc347668529 created","level":"info"}
+{"message":"Bookmark with id 528fb93a-dd6e-478a-ace7-1092ff089b0d created","level":"info"}
+{"message":"Bookmark with id c8390a8a-37f5-4e46-b69f-b7eef9461a16 created","level":"info"}
+{"message":"Bookmark with id f9a4cc11-17ac-4e9b-8320-1b60a7cc44e8 created","level":"info"}
+{"message":"Bookmark with id undefined was not found.","level":"error"}
+{"message":"Bookmark with id undefined was not found.","level":"error"}
+{"message":"Bookmark with id undefined was not found.","level":"error"}
+{"message":"Bookmark with id undefined was not found.","level":"error"}
+{"message":"Bookmark with id undefined was not found.","level":"error"}
+{"message":"Bookmark with id undefined was not found.","level":"error"}
+{"message":"Bookmark with id undefined was not found.","level":"error"}
+{"message":"Bookmark with id undefined was not found.","level":"error"}
+{"message":"Bookmark with id undefined was not found.","level":"error"}
+{"message":"Bookmark with id undefined was not found.","level":"error"}
+{"message":"Bookmark with id undefined was not found.","level":"error"}
+{"message":"Bookmark with id undefined was not found.","level":"error"}
+{"message":"Bookmark with id undefined was not found.","level":"error"}
+{"message":"Bookmark with id 1 was not found.","level":"error"}
+{"message":"Bookmark with id 1 was not found.","level":"error"}
+{"message":"Bookmark with id 1 was not found.","level":"error"}
+{"message":"Bookmark with id 1 was not found.","level":"error"}
+{"message":"Bookmark with id 1 was not found.","level":"error"}
+{"message":"Bookmark with id 1 was not found.","level":"error"}
+{"message":"Bookmark with id undefined is not found.","level":"error"}
+{"message":"Bookmark with id undefined is not found.","level":"error"}
+{"message":"Bookmark with id undefined is not found.","level":"error"}
+{"message":"Bookmark with id 1 was not found.","level":"error"}
+{"message":"Bookmark with id 1 was not found.","level":"error"}
+{"message":"Unauthorized request to path: /bookmarks","level":"error"}
+{"message":"Unauthorized request to path: /bookmarks/[object%20Object]","level":"error"}
+{"message":"Unauthorized request to path: /bookmarks","level":"error"}
+{"message":"Unauthorized request to path: /bookmarks/[object%20Object]","level":"error"}
+{"message":"A title is required","level":"error"}
+{"message":"The URL is required","level":"error"}
+{"message":"A rating is required","level":"error"}
+{"message":"Invalid rating invalid.","level":"error"}
+{"message":"Invalid url invalid","level":"error"}
+{"message":"Bookmark with id 3744da57-6c74-41f3-8d6e-67088306a98b created","level":"info"}
+{"message":"Bookmark with id invalid is not found.","level":"error"}
+{"message":"Bookmark with id invalidId was not found.","level":"error"}
+{"message":"Bookmark with id 1 was not found.","level":"error"}
+{"message":"Unauthorized request to path: /bookmarks","level":"error"}
+{"message":"Unauthorized request to path: /bookmarks/[object%20Object]","level":"error"}
+{"message":"Unauthorized request to path: /bookmarks","level":"error"}
+{"message":"Unauthorized request to path: /bookmarks/[object%20Object]","level":"error"}
+{"message":"A title is required","level":"error"}
+{"message":"The URL is required","level":"error"}
+{"message":"A rating is required","level":"error"}
+{"message":"Invalid rating invalid.","level":"error"}
+{"message":"Invalid url invalid","level":"error"}
+{"message":"Bookmark with id f2306782-e6af-490d-b506-0a0cd8406fb6 created","level":"info"}
+{"message":"Bookmark with id invalid is not found.","level":"error"}
+{"message":"Bookmark with id invalidId was not found.","level":"error"}
+{"message":"Bookmark with id 1 was not found.","level":"error"}
+{"message":"Bookmark with id 1 was not found.","level":"error"}
+{"message":"Bookmark with id 9196a28e-20fb-4d6e-940f-c52a4e41996e created","level":"info"}
+{"message":"Bookmark with id bf9b779b-530f-4a26-8904-7906ac91be14 created","level":"info"}
+{"message":"Bookmark with id eff46006-74c8-4071-aa25-0174e1cf7324 created","level":"info"}
+{"message":"Bookmark with id 9196a28e-20fb-4d6e-940f-c52a4e41996e deleted.","level":"info"}
+{"message":"Bookmark with id 9196a28e-20fb-4d6e-940f-c52a4e41996e is not found.","level":"error"}
+{"message":"Bookmark with id 1 was not found.","level":"error"}
+{"message":"Bookmark with id 1 was not found.","level":"error"}
+{"message":"Bookmark with id 1 was not found.","level":"error"}
+{"message":"Bookmark with id 1 was not found.","level":"error"}
+{"message":"Bookmark with id 1 was not found.","level":"error"}
+{"message":"Bookmark with id 1 was not found.","level":"error"}
+{"message":"Bookmark with id 1 was not found.","level":"error"}
