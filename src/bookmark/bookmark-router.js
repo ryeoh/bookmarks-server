@@ -76,7 +76,7 @@ bookmarkRouter
 
 bookmarkRouter
     .route('/bookmarks/:bookmarkId')
-    .get((res, req) => {
+    .get((req, res) => {
         const { bookmarkId } = req.params;
         const bookmark = bookmarks.find(c => c.id == bookmarkId);
 
