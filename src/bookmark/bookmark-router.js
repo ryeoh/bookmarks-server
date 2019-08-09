@@ -1,5 +1,6 @@
 const express = require('express');
 const uuid = require('uuid/v4');
+const { isWebUri }= require('valid-url');
 const logger = require('../logger');
 const { bookmarks } = require('../store');
 
@@ -28,13 +29,6 @@ bookmarkRouter
           .send('Invalid data');
     }
 
-    if (!description) {
-        logger.error(`A description is required`);
-        return res
-          .status(400)
-          .send('Invalid data');
-    }
-
     if (!rating) {
         logger.error(`A rating is required`);
         return res
@@ -46,14 +40,14 @@ bookmarkRouter
         logger.error(`Invalid rating ${rating}.`);
         return res
             .status(400)
-            .send(`Rating must be an integer between 0 and 5.`)
+            .send('Rating must be an integer between 0 and 5.')
     }
 
     if (!isWebUri(url)) {
         logger.error(`Invalid url ${url}`);
         return res
             .status(400)
-            .send(`URL must be valid.`)
+            .send('URL must be valid.')
     }
 
     const id = uuid();
@@ -91,16 +85,17 @@ bookmarkRouter
     })
     .delete((req, res) => {
         const { id } = req.params;
-        const bookmarkIndex = bookmarks.findIndex(bi => bi.id == id);
+        const bookmark = bookmarks.find(b => b.id == id);
+        const bookmarkIds = bookmarks.map(bm => bm.id);
 
-        if(bookmarkIndex === -1) {
+        if(!bookmarkIds.includes(id)) {
             logger.error(`Bookmark with id ${id} was not found.`);
             return res
                 .status(404)
                 .send('Not found');
         };
 
-        bookmarks.splice(bookmarkIndex, 1);
+        bookmarks.splice(bookmark, 1);
         logger.info(`Bookmark with id ${id} deleted.`);
         res
             .status(204)

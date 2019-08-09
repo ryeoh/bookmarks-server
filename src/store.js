@@ -1,6 +1,6 @@
 const bookmarks = [
     {
-        id: 1,
+        id: '1',
         title: 'Goodle',
         url: 'www.goodle.com',
         description: 'my favorite search engine as it finds some gooood stuff',
