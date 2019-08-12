@@ -116,7 +116,8 @@ const { bookmarks } = require('../src/store');
         .post('/bookmarks')
         .send(newBookmark)
         .set('Authorization', `Bearer ${process.env.API_TOKEN}`)
-        .expect(201, res => {
+        .expect(201)
+        .expect(res => {
           expect(res.body.title).to.eql(newBookmark.title)
           expect(res.body.url).to.eql(newBookmark.url)
           expect(res.body.description).to.eql(newBookmark.description)
@@ -124,7 +125,7 @@ const { bookmarks } = require('../src/store');
           expect(res.body.id).to.be.a('string')
         })
         .then(res => {
-          expect(bookmarks[bookmarks.length + 1]).to.eql(res.body)
+          expect(bookmarks[bookmarks.length - 1]).to.eql(res.body)
         })
     })
   })

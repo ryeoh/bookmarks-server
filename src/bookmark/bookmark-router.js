@@ -60,7 +60,7 @@ bookmarkRouter
     }
     bookmarks.push(bookmark);
 
-    logger.info(`Bookmark with id ${id} created`);
+    logger.info(`Bookmark ${JSON.stringify(bookmark)} with id ${id} created`);
 
     res
         .status(201)
@@ -86,19 +86,18 @@ bookmarkRouter
     
     .delete((req, res) => {
         const { id } = req.params;
-        const bookmarkIndex = bookmarks.findIndex(b => b.id === id);
-        const bookmarkIds = bookmarks.map(bm => bm.id);
+        const bookmarkIndex = bookmarks.findIndex(b => b.id == id);
 
-        if(!bookmarkIds.includes(id)) {
-            logger.error(`Bookmark with id ${id} was not found.`);
+        if(bookmarkIndex === -1) {
+            logger.error(`Bookmark at index ${bookmarkIndex} with id ${id} was not found.`);
             return res
                 .status(404)
                 .send('Not found');
         };
 
         bookmarks.splice(bookmarkIndex, 1);
-        
-        logger.info(`Bookmark with id ${id} deleted.`);
+
+        logger.info(`Bookmark ${bookmarkIndex} with id ${id} deleted.`);
         res
             .status(204)
             .end();
