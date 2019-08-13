@@ -401,3 +401,17 @@
 {"message":"Bookmark with id invalid is not found.","level":"error"}
 {"message":"Bookmark at index -1 with id invalidId was not found.","level":"error"}
 {"message":"Bookmark 0 with id 1 deleted.","level":"info"}
+{"message":"Unauthorized request to path: /bookmarks","level":"error"}
+{"message":"Unauthorized request to path: /bookmarks/[object%20Object]","level":"error"}
+{"message":"Unauthorized request to path: /bookmarks","level":"error"}
+{"message":"Unauthorized request to path: /bookmarks/[object%20Object]","level":"error"}
+{"message":"A title is required","level":"error"}
+{"message":"The URL is required","level":"error"}
+{"message":"A rating is required","level":"error"}
+{"message":"Invalid rating invalid.","level":"error"}
+{"message":"Invalid url invalid","level":"error"}
+{"message":"Bookmark {\"id\":\"8308dcbb-0629-425d-8b6c-abdc13759242\",\"title\":\"test\",\"url\":\"http://www.something.com\",\"description\":\"example description\",\"rating\":4} with id 8308dcbb-0629-425d-8b6c-abdc13759242 created","level":"info"}
+{"message":"Bookmark with id invalid is not found.","level":"error"}
+{"message":"Bookmark at index -1 with id invalidId was not found.","level":"error"}
+{"message":"Bookmark 0 with id 1 deleted.","level":"info"}
+{"message":"Bookmark 0 with id 69508b50-99c3-4f4c-bc7f-42cc13be50a8 deleted.","level":"info"}

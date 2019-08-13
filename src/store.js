@@ -1,6 +1,8 @@
+const uuid = require('uuid/v4');
+
 const bookmarks = [
     {
-        id: 1,
+        id: uuid(),
         title: 'Goodle',
         url: 'www.goodle.com',
         description: 'my favorite search engine as it finds some gooood stuff',
