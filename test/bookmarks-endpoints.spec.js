@@ -1,14 +1,30 @@
+const knex = require('knex');
+const fixtures = require('./bookmark-fixtures');
 const app = require('../src/app');
 const { bookmarks } = require('../src/store');
 
-// describe('Bookmark Endpoints', () => {
-//   let bookmarksCopy;
-//   beforeEach('copy the bookmarks', () => {
-//     bookmarksCopy = bookmarks.slice();
-//   })
-//   afterEach('restore the bookmarks', () => {
-//     bookmarks = bookmarksCopy;
-//   })
+describe('Bookmark Endpoints', () => {
+  let bookmarksCopy, db;
+  
+  before('make knex instance', () => {
+    db = knex({
+      client: 'pg',
+      connection: process.env.TEST_DB_URL
+    })
+    app.set('db', db)
+  })
+
+  after('disconnect from db', () => db.destroy());
+
+  before('cleanup', () => db('bookmarks').truncate());
+
+  beforeEach('copy the bookmarks', () => {
+    bookmarksCopy = bookmarks.slice();
+  })
+
+  afterEach('restore the bookmarks', () => {
+    bookmarks = bookmarksCopy;
+  })
 
   describe('Unauthorized requests', () => {
     it('responds with 401 Unauthorized with GET /bookmarks', () => {
@@ -44,11 +60,30 @@ const { bookmarks } = require('../src/store');
   })
 
   describe('GET /bookmarks', () => {
-    it('GET /bookmarks responds with list of bookmarks from the store', () => {
-      return supertest(app)
-        .get('/bookmarks')
-        .set('Authorization', `Bearer ${process.env.API_TOKEN}`)
-        .expect(200, bookmarks)
+    context('Given no bookmarks', () => {
+      it(`responds with 200 and an empty list`, () => {
+        return supertest(app)
+          .get('/bookmarks')
+          .set('Authorization', `Bearer ${process.env.API_TOKEN}`)
+          .expect(200, [])
+      })
+    })
+
+    context('Given there are bookmarks in database', () => {
+      const testBookmarks = fixtures.makeBookmarksArray();
+
+      beforeEach('insert bookmarks', () => {
+        return db
+          .into('bookmarks')
+          .insert(testBookmarks)
+      })
+
+      it('gets bookmarks from the store', () => {
+        return supertest(app)
+          .get('/bookmarks')
+          .set('Authorization', `Bearer ${process.env.API_TOKEN}`)
+          .expect(200, testBookmarks)
+      })
     })
   })
 
@@ -131,20 +166,34 @@ const { bookmarks } = require('../src/store');
   })
 
   describe('GET /bookmarks/:id', () => {
-    it('GET bookmark by id', () => {
-      const bookmark = bookmarks[0];
-      return supertest(app)
-        .get(`/bookmarks/${bookmark.id}`)
-        .set('Authorization', `Bearer ${process.env.API_TOKEN}`)
-        .expect(200, bookmark)
+    context(`Given no bookmarks`, () => {
+      it(`responds 404 when bookmark doesn't exist`, () => {
+        return supertest(app)
+          .get(`/bookmarks/123`)
+          .set('Authorization', `Bearer ${process.env.API_TOKEN}`)
+          .expect(404, {
+            error: { message: `Bookmark Not Found` }
+          })
+      })
     })
 
-    it('responds with 404 if bookmark with that ID does not exist', () => {
-      return supertest(app)
-        .get('/bookmarks/invalid')
-        .set('Authorization', `Bearer ${process.env.API_TOKEN}`)
-        .expect(404, 'That bookmark was not found.')
-      
+    context('Given there are bookmarks in the database', () => {
+      const testBookmarks = fixtures.makeBookmarksArray();
+
+      beforeEach('insert bookmarks', () => {
+        return db
+          .into('bookmarks')
+          .insert(testBookmarks)
+      })
+
+      it('responds with 200 and the specified bookmark', () => {
+        const bookmarkId = 2;
+        const expectedBookmark = testBookmarks[bookmarkId - 1];
+        return supertest(app)
+          .get(`/bookmarks/$bookmarkId`)
+          .set('Authorization', `Bearer ${process.env.API_TOKEN}`)
+          .expect(200, expectedBookmark)
+      })
     })
   })
 
@@ -177,4 +226,4 @@ const { bookmarks } = require('../src/store');
         .expect(200, 'Hello, world!')
     })
   })
-// })
+})
