@@ -5,5 +5,5 @@ CREATE TABLE bookmarks (
     title TEXT NOT NULL,
     url TEXT NOT NULL,
     description TEXT,
-    rating star_rating DEFAULT '1' NOT NULL
+    rating star_rating NOT NULL
 );
